@@ -123,8 +123,8 @@ export default function GalleryPage() {
                                 key={cat}
                                 onClick={() => setSelectedCategory(cat)}
                                 className={`px-6 py-2 rounded-full border transition-all duration-300 text-sm font-bold uppercase tracking-wider ${selectedCategory === cat
-                                        ? "bg-red-600 border-red-500 text-white shadow-[0_0_15px_rgba(220,38,38,0.5)]"
-                                        : "bg-black/40 border-white/10 text-gray-400 hover:border-red-500/50 hover:text-white"
+                                    ? "bg-red-600 border-red-500 text-white shadow-[0_0_15px_rgba(220,38,38,0.5)]"
+                                    : "bg-black/40 border-white/10 text-gray-400 hover:border-red-500/50 hover:text-white"
                                     }`}
                             >
                                 {cat}

@@ -21,8 +21,8 @@ export default function Home() {
   return (
     <div className="relative min-h-screen bg-black overflow-hidden selection:bg-red-500/30">
 
-      {/* Video Background */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
+      {/* Video Background - Desktop */}
+      <div className="hidden md:block absolute inset-0 z-0 pointer-events-none">
         <video
           autoPlay
           loop
@@ -33,9 +33,21 @@ export default function Home() {
           <source src="/background.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        {/* Overlay removed for maximum clarity */}
-        {/* <div className="absolute inset-0 bg-black/20 mix-blend-multiply" /> */}
-        {/* <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40" /> */}
+      </div>
+
+      {/* Video Background - Mobile */}
+      <div className="block md:hidden absolute inset-0 z-0 pointer-events-none">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          {/* User needs to add background-mobile.mp4. Fallback to background.mp4 if missing */}
+          <source src="/background-mobile.mp4" type="video/mp4" />
+          <source src="/background.mp4" type="video/mp4" />
+        </video>
       </div>
 
       {/* Navigation Layer */}
@@ -50,7 +62,7 @@ export default function Home() {
 
         {/* Massive Background Text "DIGICON" */}
         <div className="absolute inset-0 flex items-center justify-center z-0 pointer-events-none select-none overflow-hidden">
-          <h1 className="text-[15vw] md:text-[20vw] font-black text-transparent bg-clip-text bg-gradient-to-b from-white/10 to-transparent opacity-30 transform -rotate-6 blur-sm">
+          <h1 className="text-[18vw] md:text-[20vw] font-black text-transparent bg-clip-text bg-gradient-to-b from-white/10 to-transparent opacity-30 transform -rotate-6 blur-sm leading-none">
             DIGICON
           </h1>
         </div>
@@ -63,19 +75,17 @@ export default function Home() {
         >
           <div className="flex items-center justify-center gap-2 mb-4">
             {/* Chapter Label */}
-
           </div>
 
           <h1 className="relative flex flex-col items-center">
-
-            <div className="text-4xl md:text-5xl lg:text-8xl font-serif font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-purple-400 via-white to-gray-400 drop-shadow-[0_0_20px_rgba(168,85,247,0.8)] uppercase text-center px-4 hover:animate-glitch transition-all duration-300 cursor-default select-none">
+            <div className="text-4xl sm:text-5xl md:text-5xl lg:text-8xl font-serif font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-purple-400 via-white to-gray-400 drop-shadow-[0_0_20px_rgba(168,85,247,0.8)] uppercase text-center px-4 hover:animate-glitch transition-all duration-300 cursor-default select-none">
               KARE ACM SIGBED
             </div>
           </h1>
         </motion.div>
 
         {/* Subtitle / Button - Moved outside to prevent transform conflicts with fixed position */}
-        <div className="fixed bottom-16 left-0 right-0 z-50 flex justify-center">
+        <div className="fixed bottom-24 md:bottom-16 left-0 right-0 z-40 flex justify-center px-4">
           <motion.button
             onClick={handleRegisterClick}
             whileHover={{ scale: 1.1 }}
@@ -87,7 +97,7 @@ export default function Home() {
               duration: 2,
               repeat: Infinity,
             }}
-            className="px-10 py-4 bg-red-700 text-white font-black tracking-[0.2em] text-xl uppercase border-2 border-red-500 hover:bg-red-600 transition-colors cursor-pointer select-none"
+            className="w-full md:w-auto px-8 py-3 md:px-10 md:py-4 bg-red-700 text-white font-black tracking-[0.2em] text-lg md:text-xl uppercase border-2 border-red-500 hover:bg-red-600 transition-colors cursor-pointer select-none"
             style={{
               clipPath: "polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%)"
             }}
